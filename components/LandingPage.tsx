@@ -10,7 +10,8 @@ import {
   Globe,
   Zap,
   DollarSign,
-  Briefcase
+  Briefcase,
+  Lock
 } from 'lucide-react';
 import { getTaxAssistantResponse } from '../services/geminiService';
 
@@ -44,21 +45,21 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/20">G</div>
             <div className="flex flex-col">
-              <span className="font-black text-xl tracking-tighter leading-none">Grupo</span>
-              <span className="text-[10px] text-blue-600 font-black uppercase tracking-widest">Empresarial</span>
+              <span className="font-black text-xl tracking-tighter leading-none text-slate-900">Grupo</span>
+              <span className="text-[10px] text-blue-600 font-black uppercase tracking-widest leading-none">Empresarial</span>
             </div>
           </div>
           <div className="flex items-center gap-8">
-            <div className="hidden md:flex gap-6 text-sm font-bold text-slate-500">
+            <div className="hidden md:flex gap-6 text-[10px] font-black uppercase tracking-widest text-slate-500">
+              <span className="text-blue-600 cursor-default">Portal Clientes</span>
               <a href="#" className="hover:text-blue-600">Servicios</a>
               <a href="#" className="hover:text-blue-600">Indicadores</a>
-              <a href="#" className="hover:text-blue-600">Noticias</a>
             </div>
             <button 
               onClick={onLogin}
               className="bg-slate-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/10 flex items-center gap-2"
             >
-              Acceder al Portal <ArrowRight size={16} />
+              <Lock size={14} /> Acceso Clientes
             </button>
           </div>
         </div>
@@ -72,22 +73,24 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
         </div>
         
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 border border-blue-100 rounded-full text-blue-600 text-[10px] font-black uppercase tracking-widest mb-6 animate-bounce">
-            <Zap size={12} /> Gestión Tributaria 2025
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-slate-200 rounded-full text-slate-600 text-[10px] font-black uppercase tracking-widest mb-6 shadow-sm">
+            <ShieldCheck size={12} className="text-blue-600" /> Infraestructura Exclusiva para Clientes
           </div>
           <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter mb-6 leading-[1.1]">
-            Cumplimiento Sin Esfuerzo.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Resultados Con Certeza.</span>
+            Tu Tranquilidad es<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Nuestro Compromiso.</span>
           </h1>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium mb-10">
-            La plataforma líder para oficinas contables en Chile. Centraliza RUTs, automatiza plazos y mantén a tus clientes siempre informados.
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium mb-10 leading-relaxed">
+            Bienvenido al ecosistema digital de <span className="text-slate-900 font-bold">Grupo Empresarial</span>. 
+            La plataforma de gestión tributaria exclusiva para nuestros clientes. 
+            Centraliza tus RUTs, monitorea tus plazos y accede a asesoría experta en tiempo real.
           </p>
           <div className="flex flex-col md:flex-row items-center justify-center gap-4">
-            <button onClick={onLogin} className="w-full md:w-auto px-10 py-4 bg-blue-600 text-white rounded-2xl font-black shadow-2xl shadow-blue-600/30 hover:scale-105 transition-all">
-              EMPEZAR AHORA
+            <button onClick={onLogin} className="w-full md:w-auto px-10 py-4 bg-blue-600 text-white rounded-2xl font-black shadow-2xl shadow-blue-600/30 hover:scale-105 transition-all flex items-center justify-center gap-3">
+              ENTRAR AL PORTAL <ArrowRight size={20} />
             </button>
             <button className="w-full md:w-auto px-10 py-4 bg-white border border-slate-200 text-slate-700 rounded-2xl font-bold hover:bg-slate-50 transition-all">
-              AGENDAR ASESORÍA
+              CONTACTAR A MI CONSULTOR
             </button>
           </div>
         </div>
@@ -110,18 +113,18 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
         </div>
       </section>
 
-      {/* Features Grid */}
+      {/* Corporate Features */}
       <section className="max-w-7xl mx-auto px-6 py-32">
         <div className="text-center mb-20">
-          <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter">Potencia tu Oficina Contable</h2>
-          <p className="text-slate-500 font-medium">Diseñado específicamente para la normativa chilena.</p>
+          <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter">Beneficios del Ecosistema Grupo Empresarial</h2>
+          <p className="text-slate-500 font-medium italic">Tecnología de punta aplicada a tu contabilidad.</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {[
-            { icon: ShieldCheck, title: "Plazos SII", desc: "Sincronización automática de vencimientos para F29, F22 y Declaraciones Juradas." },
-            { icon: Clock, title: "Trazabilidad Total", desc: "Historial detallado de cada gestión, documento subido y comunicación con el cliente." },
-            { icon: Briefcase, title: "Gestión de RUTs", desc: "Controla múltiples empresas desde un solo panel con analítica de carga de trabajo." }
+            { icon: ShieldCheck, title: "Seguridad Corporativa", desc: "Tus datos y documentos están protegidos bajo estándares de encriptación bancaria y normativa SII." },
+            { icon: Clock, title: "Transparencia Total", desc: "Sabrás en todo momento qué está haciendo tu consultor y qué documentos faltan para cumplir tus plazos." },
+            { icon: Briefcase, title: "Asesoría AI 24/7", desc: "Acceso inmediato a nuestro asistente experto para dudas rápidas sobre impuestos y normativa vigente." }
           ].map((feat, i) => (
             <div key={i} className="group flex flex-col items-center text-center p-8 rounded-3xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-slate-100">
               <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
@@ -140,17 +143,17 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full text-blue-400 text-[10px] font-black uppercase tracking-widest mb-6">
-              <Globe size={12} /> Centro de Noticias
+              <Globe size={12} /> Vigilancia Tributaria
             </div>
             <h2 className="text-4xl md:text-5xl font-black mb-8 tracking-tighter">
-              Mantente al día con la <br />
-              <span className="text-blue-500">Actualidad Tributaria</span>
+              Información Estratégica <br />
+              <span className="text-blue-500">Para Tu Negocio</span>
             </h2>
             <div className="space-y-6">
               <div className="bg-white/5 border border-white/10 p-6 rounded-3xl backdrop-blur-xl">
                  <div className="flex items-center gap-3 mb-4 text-blue-400">
                     <Zap size={20} />
-                    <span className="font-black uppercase text-xs tracking-widest">Resumen AI - Hoy</span>
+                    <span className="font-black uppercase text-xs tracking-widest">Resumen de Consultoría - Hoy</span>
                  </div>
                  <div className="text-slate-300 text-sm leading-relaxed whitespace-pre-wrap font-medium">
                     {newsSummary}
@@ -163,19 +166,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
              <div className="bg-white p-8 rounded-[2rem] text-slate-900 shadow-2xl rotate-2">
                 <div className="flex justify-between items-start mb-6">
                   <div className="p-3 bg-blue-100 text-blue-600 rounded-xl"><Newspaper size={24} /></div>
-                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">SII Chile</span>
+                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Alerta Grupo Empresarial</span>
                 </div>
-                <h4 className="font-black text-lg mb-2 uppercase tracking-tight leading-tight">Nuevas directrices para el IVA en servicios digitales</h4>
-                <p className="text-slate-500 text-xs font-medium mb-6">Circular N° 14 actualiza los criterios de fiscalización para plataformas extranjeras...</p>
-                <button className="text-blue-600 font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all">Leer más <ChevronRight size={14} /></button>
-             </div>
-             <div className="bg-gradient-to-br from-blue-600 to-indigo-700 p-8 rounded-[2rem] text-white shadow-2xl -rotate-2">
-                <h4 className="font-black text-2xl mb-4 tracking-tighter uppercase leading-none">Operación Renta 2025</h4>
-                <p className="text-blue-100 text-sm font-medium mb-6">Revisa los nuevos plazos y formularios para el proceso de este año.</p>
-                <div className="flex -space-x-3 mb-6">
-                  {[1,2,3].map(i => <div key={i} className="w-10 h-10 rounded-full border-4 border-blue-700 bg-blue-400 flex items-center justify-center font-bold text-xs">U{i}</div>)}
-                </div>
-                <button className="w-full py-3 bg-white text-blue-600 rounded-xl font-black text-xs uppercase tracking-widest">Descargar Guía</button>
+                <h4 className="font-black text-lg mb-2 uppercase tracking-tight leading-tight">Preparación Operación Renta 2025</h4>
+                <p className="text-slate-500 text-xs font-medium mb-6">Nuestros consultores ya están procesando los cierres anuales. Accede al portal para revisar tu estado.</p>
+                <button className="text-blue-600 font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all">Ver detalles <ChevronRight size={14} /></button>
              </div>
           </div>
         </div>
@@ -191,11 +186,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
               <span className="text-[10px] text-slate-400 font-black uppercase tracking-widest">Empresarial</span>
             </div>
           </div>
-          <p className="text-slate-400 text-sm font-medium">© 2025 Grupo Empresarial SpA. Todos los derechos reservados.</p>
+          <p className="text-slate-400 text-sm font-medium">© 2025 Grupo Empresarial SpA. Acceso exclusivo para clientes vigentes.</p>
           <div className="mt-6 flex justify-center gap-8 text-xs font-bold text-slate-400 uppercase tracking-widest">
-            <a href="#" className="hover:text-blue-600">Privacidad</a>
-            <a href="#" className="hover:text-blue-600">Términos</a>
+            <a href="https://grupoempresarial.cl" target="_blank" className="hover:text-blue-600">Sitio Oficial</a>
             <a href="#" className="hover:text-blue-600">Soporte</a>
+            <a href="#" className="hover:text-blue-600">Oficinas</a>
           </div>
         </div>
       </footer>
